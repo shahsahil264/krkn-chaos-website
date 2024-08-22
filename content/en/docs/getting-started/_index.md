@@ -1,22 +1,26 @@
 ---
-title: Getting Started
-description: What does your user need to know to try your project?
-categories: [Examples, Placeholders]
-tags: [test, docs]
+title: Installation
+description: 
+categories: [Installation]
+tags: [install, docs]
 weight: 2
 ---
 
-{{% pageinfo %}}
+<!-- {{% pageinfo %}}
 This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+{{% /pageinfo %}} -->
 
-Information in this section helps your user try your project themselves.
+The following ways are supported to run Kraken:
+- Standalone python program through Git.
+- Containerized version using either Podman or Docker as the runtime via [Krkn-hub](https://github.com/krkn-chaos/krkn-hub)
+- Kubernetes or OpenShift deployment ( unsupported )
 
-* What do your users need to do to start using your project? This could include downloading/installation instructions, including any prerequisites or system requirements.
+{{% alert title="Note" %}} It is recommended to run Kraken external to the cluster ( Standalone or Containerized ) hitting the Kubernetes/OpenShift API as running it internal to the cluster might be disruptive to itself and also might not report back the results if the chaos leads to cluster's API server instability.{{% /alert %}}
 
-* Introductory “Hello World” example, if appropriate. More complex tutorials should live in the Tutorials section.
+{{% alert title="Note" %}} To run Kraken on Power (ppc64le) architecture, build and run a containerized version by following the instructions given [here](https://github.com/krkn-chaos/krkn/blob/main/containers/build_own_image-README.md).{{% /alert %}}
 
-Consider using the headings below for your getting started page. You can delete any that are not applicable to your project.
+{{% alert title="Note" %}} Helper functions for interactions in Krkn are part of [krkn-lib](https://github.com/krkn-chaos/krkn-lib). Please feel free to reuse and expand them as you see fit when adding a new scenario or expanding the capabilities of the current supported scenarios. {{% /alert %}}
+
 
 ## Prerequisites
 
@@ -24,12 +28,31 @@ Are there any system requirements for using your project? What languages are sup
 
 ## Installation
 
+#### Git 
+###### Clone the repository
+```bash
+$ git clone https://github.com/krkn-chaos/krkn.git --branch <release version>
+$ cd krkn 
+```
+###### Install the dependencies
+
+```bash
+$ python3.9 -m venv chaos
+$ source chaos/bin/activate
+$ pip3.9 install -r requirements.txt
+```
+{{% alert title="Note" %}} Make sure python3-devel and latest pip versions are installed on the system. The dependencies install has been tested with pip >= 21.1.3 versions.{{% /alert %}}
 Where can your user find your project code? How can they install it (binaries, installable package, build from source)? Are there multiple options/versions they can install and how should they choose the right one for them?
 
-## Setup
+## Running Krkn
 
-Is there any initial setup users need to do after installation to try your project?
+```bash
+$ python3.9 run_kraken.py --config <config_file_location>
+```
 
-## Try it out!
+## Run containerized version
 
-Can your users test their installation, for example by running a command or deploying a Hello World example?
+[Krkn-hub](https://github.com/krkn-chaos/krkn-hub) is a wrapper that allows running Krkn chaos scenarios via podman or docker runtime with scenario parameters/configuration defined as environment variables.
+
+
+
