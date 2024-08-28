@@ -1,4 +1,4 @@
 ---
-title: Releases
+title: Blogs
 weight: 20
 ---
