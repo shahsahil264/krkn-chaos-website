@@ -12,7 +12,7 @@ linkTitle: "Krkn Chaos"
   Github <i class="fab fa-github ms-2 "></i>
 </a>
 <p class="lead mt-5">Unleash Chaos, Ensure Resilience!  
-Make Kubernetes Sweat -Unleash the Kraken!</p>
+</p>
 {{< blocks/link-down color="info" >}}
 {{< /blocks/cover >}}
 
@@ -24,26 +24,24 @@ Krkn aka **Kraken** is a chaos and resiliency testing tool for Kubernetes. Krake
 
 {{% blocks/section color="dark" type="row" %}}
 
-{{% blocks/feature icon="fa-solid fa-magnifying-glass" %}}
-Watches for the presence of a reboot sentinel file e.g. `/var/run/reboot-required`
-or the successful run of a sentinel command.
+{{% blocks/feature icon="fa-solid fa-shield" %}}
+Cerberus monitors clusters for failures, providing a go/no-go signal.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fa-solid fa-lock" %}}
-Utilises a lock in the API server to ensure only one node reboots at a time.
+{{% blocks/feature icon="fa-solid fa-solid fa-triangle-exclamation" %}}
+Post run alerts, to make sure system is resilient.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fa-solid fa-user-clock" %}}
-Optionally defers reboots in the presence of active Prometheus alerts or selected pods.
+{{% blocks/feature icon="fa-solid fa-comments" %}}
+Chaos Recommender analyzes telemetry data to suggest chaos scenarios, best used under application load.
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fa-solid fa-list-check" %}}
+<!-- {{% blocks/feature icon="fa-solid fa-list-check" %}}
 Cordons & drains worker nodes before reboot, uncordoning them after.
-{{% /blocks/feature %}}
-
-<!-- {{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/google/docsy-example" %}}
-We do a [Pull Request](https://github.com/google/docsy-example/pulls) contributions workflow on **GitHub**. New users are always welcome!
 {{% /blocks/feature %}} -->
+
+{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/krkn-chaos/krkn/issues" %}}
+{{% /blocks/feature %}}
 
 {{< /blocks/section >}}
 
